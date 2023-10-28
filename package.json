@@ -1,0 +1,28 @@
+{
+   "name": "expenses2-backend",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "dev": "ts-node-dev --respawn ./src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   },
+   "dependencies": {
+      "body-parser": "^1.20.2",
+      "dotenv": "^16.3.1",
+      "express": "^4.18.2",
+      "morgan": "^1.10.0",
+      "pg": "^8.11.3",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.17"
+   },
+   "devDependencies": {
+      "@types/express": "^4.17.20",
+      "@types/morgan": "^1.9.7",
+      "@types/node": "^16.11.10",
+      "ts-node": "10.7.0",
+      "ts-node-dev": "^2.0.0",
+      "typescript": "^5.2.2"
+   }
+}
