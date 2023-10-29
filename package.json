@@ -4,8 +4,8 @@
    "description": "Awesome project developed with TypeORM.",
    "type": "commonjs",
    "scripts": {
-      "start": "ts-node src/index.ts",
-      "dev": "ts-node-dev --respawn ./src/index.ts",
+      "start": "NODE_ENV=prod ts-node ./dist/index.ts",
+      "dev": "NODE_ENV=dev ts-node-dev --respawn ./src/index.ts",
       "typeorm": "typeorm-ts-node-commonjs"
    },
    "dependencies": {

@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity()
-export class Category {
+export class TCategory {
 
     @PrimaryGeneratedColumn()
     id!: number

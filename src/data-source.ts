@@ -1,14 +1,11 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { Category } from "./entity/Category"
+import { TCategory } from "./entity/TCategory"
 
 import dotenv from 'dotenv';
-dotenv.config();
-
-console.log('------------');
-console.log('TEST');
-console.log('port:', process.env.DB_USERNAME);
-console.log('------------');
+dotenv.config({
+    path: `.env.${process.env.NODE_ENV}`
+});
 
 export const AppDataSource = new DataSource({
     type: 'postgres',
@@ -19,7 +16,7 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_DATABASE,
     synchronize: process.env.DB_SYNCHRONIZE === 'true' || false,
     logging: process.env.DB_LOGGING === 'true' || false,
-    entities: [Category],
+    entities: [TCategory],
     migrations: [],
     subscribers: [],
 })

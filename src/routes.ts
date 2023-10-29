@@ -1,28 +1,28 @@
-import {CategoryController} from './controller/CategoryController';
+import {TCategoryController} from './controller/TCategoryController';
 
 export const Routes = [
 	{
 		method: 'get',
-		route: '/categories',
-		controller: CategoryController,
+		route: '/tCategories',
+		controller: TCategoryController,
 		action: 'all',
 	},
 	{
 		method: 'get',
-		route: '/categories/:id',
-		controller: CategoryController,
+		route: '/tCategories/:id',
+		controller: TCategoryController,
 		action: 'one',
 	},
 	{
 		method: 'post',
-		route: '/categories',
-		controller: CategoryController,
+		route: '/tCategories',
+		controller: TCategoryController,
 		action: 'save',
 	},
 	/*{
 		method: 'delete',
-		route: '/categories/:id',
-		controller: CategoryController,
+		route: '/tCategories/:id',
+		controller: TCategoryController,
 		action: 'remove',
 	},*/
 ];

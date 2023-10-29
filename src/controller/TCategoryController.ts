@@ -1,24 +1,24 @@
 import {AppDataSource} from '../data-source';
 import {NextFunction, Request, Response} from 'express';
-import {Category} from '../entity/Category';
+import {TCategory} from '../entity/TCategory';
 
-export class CategoryController {
+export class TCategoryController {
 
-	private categoryRepository = AppDataSource.getRepository(Category);
+	private tCategoryRepository = AppDataSource.getRepository(TCategory);
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return this.categoryRepository.find();
+		return this.tCategoryRepository.find();
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
 		const id = parseInt(request.params.id);
 
-		const category = await this.categoryRepository.findOne({
+		const category = await this.tCategoryRepository.findOne({
 			where: {id},
 		});
 
 		if (!category) {
-			return 'cannot find category';
+			return {message: 'cannot find category'};
 		}
 		return category;
 	}
@@ -26,24 +26,24 @@ export class CategoryController {
 	async save(request: Request, response: Response, next: NextFunction) {
 		const {name, tags} = request.body;
 
-		const category = Object.assign(new Category(), {
+		const category = Object.assign(new TCategory(), {
 			name,
 			tags,
 		});
 
-		return this.categoryRepository.save(category);
+		return this.tCategoryRepository.save(category);
 	}
 
 	/*async remove(request: Request, response: Response, next: NextFunction) {
 		const id = parseInt(request.params.id);
 
-		let categoryToRemove = await this.categoryRepository.findOneBy({id});
+		let tCategoryToRemove = await this.tCategoryRepository.findOneBy({id});
 
-		if (!categoryToRemove) {
+		if (!tCategoryToRemove) {
 			return 'this category not exist';
 		}
 
-		await this.categoryRepository.remove(categoryToRemove);
+		await this.tCategoryRepository.remove(tCategoryToRemove);
 
 		return 'category has been removed';
 	}*/
