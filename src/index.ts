@@ -1,9 +1,10 @@
+import express, {Application} from 'express';
 import * as bodyParser from 'body-parser';
-import express, {Application, Request, Response} from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import {AppDataSource} from './data-source';
-import {Routes} from './routes';
+// import {RoutesOLD} from './routes-OLD';
+// import Routes from './routes';
 
 import dotenv from 'dotenv';
 dotenv.config({
@@ -23,9 +24,10 @@ AppDataSource.initialize().then(async () => {
   app.use(morgan('tiny'));
   app.use(express.json());
   app.use(express.static(UPLOAD_DIR));
+	// app.use(Routes);
 
 	// register express routes from defined application routes
-	Routes.forEach(route => {
+	/*Routes.forEach(route => {
 		(app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
 			const result = (new (route.controller as any))[route.action](req, res, next);
 			if (result instanceof Promise) {
@@ -35,7 +37,7 @@ AppDataSource.initialize().then(async () => {
 				res.json(result);
 			}
 		});
-	});
+	});*/
 
 
 	// start express server
